@@ -1,0 +1,4 @@
+// preset is a language feature or plugin that we needed to support in bundle file.
+{
+    "presets": ["es2015", "react"]
+}
