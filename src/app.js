@@ -1,48 +1,16 @@
 import { createStore } from 'redux';
 
-// ==========================
-// define reducer
-// ==========================
-let initState = {
-    books: []
-};
+// import combine reducer
+import reducers from './reducers/index';
 
-const reducer = (state = initState, action) => {
-    switch (action.type) {
-        case 'POST_BOOK':
-            return {books: [...state.books, action.payload]};
-        break;
-
-        case 'DELETE_BOOK':
-            let currentBook = [...state.books];
-            let findBookIndex = currentBook.findIndex((book) => {
-                return book.id === action.payload.id
-            });
-            
-            // console.time('slice  =>');
-            // let leftBooks = [...currentBook.slice(0, findBookIndex)];
-            // let rightBooks = [...currentBook.slice(findBookIndex + 1)];
-            // console.timeEnd('slice  =>');
-
-            // // or we can use .filter()
-            // console.time('filter =>');
-            let books = currentBook.filter((book) => {
-                return book.id !== action.payload.id;
-            });
-            // console.timeEnd('filter =>');
-
-            // return {books: [...leftBooks, ...rightBooks]};
-            return {books: [...books]};
-        break;
-    }
-
-    return state;
-};
+// import action
+import { addToCart } from './actions/cartActions';
+import { postBook, deleteBook, updateBook } from './actions/bookActions';
 
 // ==========================
 // create store
 // ==========================
-const store = createStore(reducer);
+const store = createStore(reducers);
 
 // ==========================
 // subscribe store
@@ -55,40 +23,48 @@ store.subscribe(() => {
 // create state and dispatch
 // ==========================
 
-// C = Create
-// dispatch first action
-store.dispatch({
-    type: 'POST_BOOK',
-    payload: {
-        id: 1,
-        title: 'Book - 1',
-        description: 'this is the book description'
-    }
-});
+// POST BOOK
+store.dispatch(
+    postBook(
+        [{
+            id: 1,
+            title: 'The flash book.',
+            description: 'This is the flash book description',
+            price: 30.50
+        }, 
+        {
+            id: 2,
+            title: 'Marvel Agent of Shield',
+            description: 'This is the marvel book description',
+            price: 100.00
+        },
+        {
+            id: 3,
+            title: 'Hary Potter',
+            description: 'This is a Harry Potter book description',
+            price: 200.10
+        }]
+    )
+);
 
-store.dispatch({
-    type: 'POST_BOOK',
-    payload: {
+// DELETE BOOK
+store.dispatch(
+    deleteBook({id: 1})
+);
+
+// UPDATE BOOK
+store.dispatch(
+    updateBook({
         id: 2,
-        title: 'Book - 2',
-        description: 'this is the book description'
-    }
-});
+        title: 'Ironman update!!'
+    })
+);
 
+// --> cart actions
+// add to cart
 store.dispatch({
-    type: 'POST_BOOK',
-    payload: {
-        id: 3,
-        title: 'Book - 3',
-        description: 'this is the book description'
-    }
-});
-
-// D = Delete
-// delete book id: 1
-store.dispatch({
-    type: 'DELETE_BOOK',
-    payload: {
-        id: 2
-    }
+    type: 'ADD_TO_CART',
+    payload: [{
+        id: 1
+    }]
 });
