@@ -1,5 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
-import { createLogger } from 'redux-logger';
+import { createStore } from 'redux';
 
 // import combine reducer
 import reducers from './reducers/index';
@@ -11,9 +10,7 @@ import { postBook, deleteBook, updateBook } from './actions/bookActions';
 // ==========================
 // create store
 // ==========================
-const logger = createLogger();
-const middleware = applyMiddleware(logger);
-const store = createStore(reducers, middleware);
+const store = createStore(reducers);
 
 // ==========================
 // subscribe store
