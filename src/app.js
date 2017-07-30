@@ -1,6 +1,7 @@
 // REACT
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux'; // provider wrap component and pass store as a props
 
 // REDUX
 import { applyMiddleware, createStore } from 'redux';
@@ -27,7 +28,9 @@ import BooksList from './components/pages/BooksList';
 
 const appElement = document.getElementById('app');
 render(
-    <BooksList />, appElement
+    <Provider store={store}>
+        <BooksList />
+    </Provider>, appElement    
 );
 
 // ==========================
