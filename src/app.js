@@ -1,3 +1,8 @@
+// REACT
+import React from 'react';
+import { render } from 'react-dom';
+
+// REDUX
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 
@@ -14,6 +19,16 @@ import { postBook, deleteBook, updateBook } from './actions/bookActions';
 const logger = createLogger();
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
+
+// ==========================
+// component
+// ==========================
+import BooksList from './components/pages/BooksList';
+
+const appElement = document.getElementById('app');
+render(
+    <BooksList />, appElement
+);
 
 // ==========================
 // subscribe store

@@ -1,6 +1,6 @@
 // preset is a language feature or plugin that we needed to support in bundle file.
 // "plugins": ["transform-object-rest-spread"]
 {
-    "presets": ["latest", "stage-3"],
+    "presets": ["latest", "stage-3", "react"],
     
 }
