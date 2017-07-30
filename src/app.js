@@ -38,28 +38,28 @@ render(
 // ==========================
 
 // POST BOOK
-store.dispatch(
-    postBook(
-        [{
-            id: 1,
-            title: 'The flash book.',
-            description: 'This is the flash book description',
-            price: 30.50
-        }, 
-        {
-            id: 2,
-            title: 'Marvel Agent of Shield',
-            description: 'This is the marvel book description',
-            price: 100.00
-        },
-        {
-            id: 3,
-            title: 'Hary Potter',
-            description: 'This is a Harry Potter book description',
-            price: 200.10
-        }]
-    )
-);
+// store.dispatch(
+//     postBook(
+//         [{
+//             id: 1,
+//             title: 'The flash book.',
+//             description: 'This is the flash book description',
+//             price: 30.50
+//         }, 
+//         {
+//             id: 2,
+//             title: 'Marvel Agent of Shield',
+//             description: 'This is the marvel book description',
+//             price: 100.00
+//         },
+//         {
+//             id: 3,
+//             title: 'Hary Potter',
+//             description: 'This is a Harry Potter book description',
+//             price: 200.10
+//         }]
+//     )
+// );
 
 // --> cart actions
 // add to cart

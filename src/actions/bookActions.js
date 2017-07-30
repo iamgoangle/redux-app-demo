@@ -22,4 +22,11 @@ const updateBook = (book) => {
     }
 };
 
-export { postBook, deleteBook, updateBook };
+// GET A BOOK
+const getBooks = () => {
+    return {
+        type: 'GET_BOOK'
+    }
+};
+
+export { postBook, deleteBook, updateBook, getBooks };
