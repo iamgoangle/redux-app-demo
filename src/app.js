@@ -34,13 +34,6 @@ render(
 );
 
 // ==========================
-// subscribe store
-// ==========================
-store.subscribe(() => {
-    console.log('current state is: ', store.getState());
-});
-
-// ==========================
 // create state and dispatch
 // ==========================
 
@@ -66,19 +59,6 @@ store.dispatch(
             price: 200.10
         }]
     )
-);
-
-// DELETE BOOK
-store.dispatch(
-    deleteBook({id: 1})
-);
-
-// UPDATE BOOK
-store.dispatch(
-    updateBook({
-        id: 2,
-        title: 'Ironman update!!'
-    })
 );
 
 // --> cart actions
