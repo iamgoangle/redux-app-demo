@@ -14,6 +14,15 @@ import reducers from './reducers/index';
 import { addToCart } from './actions/cartActions';
 import { postBook, deleteBook, updateBook } from './actions/bookActions';
 
+// JQUERY
+import $ from 'jquery';
+window.$ = $;
+window.jQuery = jQuery;
+
+// BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 // ==========================
 // create store
 // ==========================
