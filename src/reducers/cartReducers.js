@@ -9,7 +9,7 @@ const cartReducers = (state = initState, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return {
-                cart: [...state.cart, ...action.payload]
+                cart: [...state, ...action.payload]
             }
         break;
     }
