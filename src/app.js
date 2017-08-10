@@ -72,9 +72,9 @@ render(
 
 // --> cart actions
 // add to cart
-store.dispatch({
-    type: 'ADD_TO_CART',
-    payload: [{
-        id: 1
-    }]
-});
+// store.dispatch({
+//     type: 'ADD_TO_CART',
+//     payload: [{
+//         id: 1
+//     }]
+// });
