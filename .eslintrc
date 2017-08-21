@@ -11,9 +11,11 @@
         "node": true
     },
     "parserOptions": {
-        "ecmaVersion": 6,
         "ecmaFeatures": {
-            "jsx": true
+            "ecmaVersion": 6,
+            "jsx": true,
+            "arrowFunctions": true,
+            "spread": true
         },
         "sourceType": "module"
     },
@@ -41,7 +43,9 @@
         "no-empty": "warn",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "react/prop-types": ["off"]
+        "react/prop-types": ["off"],
+        "react/no-find-dom-node": ["off"],
+        "react/no-string-refs": ["off"]
 
     }
 }

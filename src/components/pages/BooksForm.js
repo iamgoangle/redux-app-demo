@@ -56,7 +56,7 @@ class BooksForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         postBook
     }, dispatch);

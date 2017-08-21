@@ -7,11 +7,11 @@ const addToCart = (book) => {
 };
 
 // DELETE CART ITEM
-const deleteCart = (cart) => {
+const deleteCartItem = (cart) => {
     return {
         type: 'DELETE_CART_ITEM',
         payload: cart
     }
 };
 
-export { addToCart, deleteCart };
+export { addToCart, deleteCartItem };

@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Panel, Col, Row, Button, ButtonGroup, Label } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
+import { deleteCartItem } from '../../actions/cartActions';
 
 class Cart extends Component {
+    onDelete (_id) {
+        const currentCartItems = this.props.cart;
+            
+        let cartAfterDelete = currentCartItems.filter((cart) => {
+            return cart.id !== _id;
+        });
+
+        console.log(cartAfterDelete);
+        this.props.deleteCartItem(cartAfterDelete);
+    }
+
     renderEmpty () {
         return (<div></div>);
     }
@@ -32,13 +45,16 @@ class Cart extends Component {
                                     +
                                 </Button>
                                 <span>  </span>
-                                <Button bsStyle="danger" bsSize="small">DELETE</Button>
+                                <Button
+                                    onClick={() => this.onDelete(cartArr.id)} 
+                                    bsStyle="danger" 
+                                    bsSize="small">DELETE</Button>
                             </ButtonGroup>
                         </Col>
                     </Row>
                 </Panel>
             )
-        });
+        }, this);
 
         return (
             <Panel header="Cart" bsStyle="primary">
@@ -62,4 +78,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators ({
+        deleteCartItem: deleteCartItem
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
