@@ -10,6 +10,7 @@ import { getBooks } from '../../actions/bookActions';
 
 import BookItem from './BookItem';
 import BookForms from './BooksForm';
+import Cart from './cart';
 
 class BooksList extends Component {
     componentDidMount() {
@@ -19,23 +20,32 @@ class BooksList extends Component {
     render() {
         const booksList = this.props.books.map((book) => {
             return(
-                <Col xs={12} sm={6} md={4} key={book.id}>
-                    <BookItem 
-                        id={book.id}
-                        title={book.title}
-                        description={book.description}
-                        price={book.price} />
-                </Col>
+                <Row>
+                    <Col xs={12} sm={12} md={12} key={book.id}>
+                        <BookItem 
+                            id={book.id}
+                            title={book.title}
+                            description={book.description}
+                            price={book.price} />
+                    </Col>
+                </Row>
             )
         });
 
         return (
             <Grid>
                 <Row>
-                    <Col xs={12} sm={6}>
+                    <Cart />
+                </Row>
+
+                <Row>
+                    <Col md={6} xs={12} sm={6}>
                         <BookForms />
                     </Col>
-                    {booksList}
+                    
+                    <Col md={4} sm={6}>
+                        {booksList}
+                    </Col>                    
                 </Row>
             </Grid>
         )

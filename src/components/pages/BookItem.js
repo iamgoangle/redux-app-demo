@@ -8,16 +8,12 @@ import { addToCart } from '../../actions/cartActions';
 
 class BookItem extends Component {
     handleCart() {
-        console.log(this.props);
-
         const book = [...this.props.cart, {
             id: this.props.id,
             title: this.props.title,
             description: this.props.title,
             price: this.props.price
         }];
-
-        console.log(book);
 
         this.props.addToCart(book);
     }
