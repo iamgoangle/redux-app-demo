@@ -1,0 +1,47 @@
+/*
+    eslint for react rule
+    https://github.com/yannickcr/eslint-plugin-react
+*/
+
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended", 
+        "plugin:react/recommended"
+    ],
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "rules": {
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "off",
+        "no-fallthrough": "error",
+        "constructor-super": "warn",
+        "no-unused-vars": "error",        
+        "valid-typeof": "warn",
+        "indent": ["error", 4],
+        "no-console": "warn",
+        "no-empty": "warn",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/prop-types": ["off"]
+
+    }
+}

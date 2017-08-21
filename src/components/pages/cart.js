@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Panel, Col, Row, Well, Button, ButtonGroup, Label } from 'react-bootstrap';
+import { Panel, Col, Row, Button, ButtonGroup, Label } from 'react-bootstrap';
 
 class Cart extends Component {
     renderEmpty () {
@@ -56,7 +56,7 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         cart: state.cart.cart
     }

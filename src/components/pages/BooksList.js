@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // React-Bootstrap component
-import { Grid, Col, Row, Button } from 'react-bootstrap';
+import { Grid, Col, Row } from 'react-bootstrap';
 
 // ACTION CREATOR
 import { getBooks } from '../../actions/bookActions';
@@ -20,8 +20,8 @@ class BooksList extends Component {
     render() {
         const booksList = this.props.books.map((book) => {
             return(
-                <Row>
-                    <Col xs={12} sm={12} md={12} key={book.id}>
+                <Row key={book.id}>
+                    <Col xs={12} sm={12} md={12}>
                         <BookItem 
                             id={book.id}
                             title={book.title}
@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 // bind action creator with this component
 // TODO: Read http://redux.js.org/docs/api/bindActionCreators.html
 // TODO: https://stackoverflow.com/questions/41342540/what-is-difference-between-dispatch-and-bindactioncreators
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         getBooks: getBooks
     }, dispatch);
