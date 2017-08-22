@@ -15,7 +15,8 @@
             "ecmaVersion": 6,
             "jsx": true,
             "arrowFunctions": true,
-            "spread": true
+            "spread": true,
+            "experimentalObjectRestSpread": true
         },
         "sourceType": "module"
     },
@@ -45,7 +46,8 @@
         "react/jsx-uses-vars": "error",
         "react/prop-types": ["off"],
         "react/no-find-dom-node": ["off"],
-        "react/no-string-refs": ["off"]
+        "react/no-string-refs": ["off"],
+        "no-case-declarations": ["off"]
 
     }
 }
