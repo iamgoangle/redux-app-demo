@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Panel, Col, Row, Button, ButtonGroup, Label } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
-import { deleteCartItem } from '../../actions/cartActions';
+import { deleteCartItem, updateCart } from '../../actions/cartActions';
 
 class Cart extends Component {
     onDelete (_id) {
@@ -12,8 +12,17 @@ class Cart extends Component {
             return cart.id !== _id;
         });
 
-        console.log(cartAfterDelete);
         this.props.deleteCartItem(cartAfterDelete);
+    }
+
+    onIncrement (_id) {
+        this.props.updateCart(_id, 1);
+    }
+
+    onDecrement (_id, quantity) {
+        if (quantity > 1) {
+            this.props.updateCart(_id, -1);
+        }
     }
 
     renderEmpty () {
@@ -34,14 +43,20 @@ class Cart extends Component {
                         </Col>
 
                         <Col xs={12} sm={2}>
-                            <h6>qty. <Label bsStyle="success"></Label></h6>
+                            <h6>qty. <Label bsStyle="success">{cartArr.quantity}</Label></h6>
                         </Col>
                         <Col xs={12} sm={4}>
                             <ButtonGroup style={{minWidth: '300px'}}>
-                                <Button bsStyle="default" bsSize="small">
+                                <Button 
+                                    onClick={() => this.onDecrement(cartArr.id, cartArr.quantity)}
+                                    bsStyle="default" 
+                                    bsSize="small">
                                     -
                                 </Button>
-                                <Button bsStyle="default" bsSize="small">
+                                <Button 
+                                    onClick={() => this.onIncrement(cartArr.id)}
+                                    bsStyle="default" 
+                                    bsSize="small">
                                     +
                                 </Button>
                                 <span>  </span>
@@ -80,7 +95,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators ({
-        deleteCartItem: deleteCartItem
+        deleteCartItem: deleteCartItem,
+        updateCart: updateCart
     }, dispatch);
 }
 

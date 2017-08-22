@@ -10,10 +10,6 @@ import { createLogger } from 'redux-logger';
 // import combine reducer
 import reducers from './reducers/index';
 
-// import action
-import { addToCart } from './actions/cartActions';
-import { postBook, deleteBook, updateBook } from './actions/bookActions';
-
 // JQUERY
 import $ from 'jquery';
 window.$ = $;

@@ -6,6 +6,15 @@ const addToCart = (book) => {
     }
 };
 
+// UPDATE CART
+const updateCart = (_id, unit) => {
+    return {
+        type: 'UPDATE_CART',
+        _id: _id,
+        unit: unit
+    }
+};
+
 // DELETE CART ITEM
 const deleteCartItem = (cart) => {
     return {
@@ -14,4 +23,4 @@ const deleteCartItem = (cart) => {
     }
 };
 
-export { addToCart, deleteCartItem };
+export { addToCart, deleteCartItem, updateCart };
