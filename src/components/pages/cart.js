@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Panel, Col, Row, Button, ButtonGroup, Label } from 'react-bootstrap';
+import { 
+    Panel, Col, Row, Button, 
+    ButtonGroup, Label, Modal
+} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { deleteCartItem, updateCart } from '../../actions/cartActions';
 
 class Cart extends Component {
+    constructor () {
+        super();
+        this.state = {
+            showModal: false,
+            modal: {
+                title: 'Thank you!',
+                body: 'Your order has been saved'
+            }
+        };
+    }
+
+    showModal () {
+        this.setState({showModal: true});
+    }
+
+    closeModal () {
+        this.setState({showModal: false});
+    }
+
     onDelete (_id) {
         const currentCartItems = this.props.cart;
             
@@ -71,9 +93,40 @@ class Cart extends Component {
             )
         }, this);
 
+        const confirmModalInstance = (
+            <Modal show={this.state.showModal} onHide={() => this.close(this)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{this.state.modal.title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>{this.state.modal.body}</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Col xs={6}>
+                        <h6>total: $</h6>
+                    </Col>
+                    <Button onClick={() => this.closeModal(this)}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+
         return (
             <Panel header="Cart" bsStyle="primary">
                 {cartItemsList}
+
+                <Row>
+                    <Col xs={12}>
+                        <h6>Total amount:</h6>
+                        <Button 
+                            onClick={() => this.showModal(this)} 
+                            bsStyle="success" 
+                            bsSize="small">
+                            PROCEED TO CHECKOUT
+                        </Button>
+                    </Col>
+                </Row>
+
+                {confirmModalInstance}
             </Panel>
         )
     }
