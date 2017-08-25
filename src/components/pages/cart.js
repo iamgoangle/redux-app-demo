@@ -94,7 +94,7 @@ class Cart extends Component {
         }, this);
 
         const confirmModalInstance = (
-            <Modal show={this.state.showModal} onHide={() => this.close(this)}>
+            <Modal show={this.state.showModal} onHide={() => this.closeModal(this)}>
                 <Modal.Header closeButton>
                     <Modal.Title>{this.state.modal.title}</Modal.Title>
                 </Modal.Header>
