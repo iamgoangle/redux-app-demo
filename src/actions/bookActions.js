@@ -7,10 +7,10 @@ const postBook = (book) => {
 };
 
 // DELETE BOOK PAYLOAD
-const deleteBook = (book) => {
+const deleteBook = (id) => {
     return {
         type: 'DELETE_BOOK',
-        payload: book
+        payload: parseInt(id, 10)
     }
 };
 
