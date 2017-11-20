@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --inline --hot --history-api-fallback --config webpack.config.js"
+    "dev": "webpack-dev-server --progress --inline --hot --host 0.0.0.0 --history-api-fallback --config webpack.config.js"
   },
   "keywords": [
     "simple",
     "redux",
     "app"
   ],
-  "author": "Teerapong Singthngo",
+  "author": "Teerapong Singthong",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.24.1",
